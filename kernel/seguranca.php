@@ -1,13 +1,13 @@
 <?php
 ob_start();
-if(($_SESSION["usernome"] == "") || ($_SESSION["userusuario"] == "") || ($_SESSION["usernivel"] == "")){
+if(($_SESSION["usuarionome"] == "") || ($_SESSION["usuariousuario"] == "")){
     unset(
-        $_SESSION["usernome"],
-        $_SESSION["userusuario"],
-        $_SESSION["usernivel"]
+        $_SESSION["usuarionome"],
+        $_SESSION["usuariousuario"]
     );
-    $_SESSION["loginerro"] = "<div class=\"alert alert-danger\" role=\"alert\">
+    $_SESSION["login_erro"] = "<div class=\"alert alert-danger\" role=\"alert\">
                                 Área Restrita, Somente para Usuários Cadastrados.
                               </div>";
     header("Location: login.php");
+    //var_dump($_SESSION);
 }

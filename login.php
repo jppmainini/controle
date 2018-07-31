@@ -1,9 +1,9 @@
 <?php
-session_start();
+session_start()
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -16,7 +16,15 @@ session_start();
     <title>Login | Dellasta Informática</title>
 </head>
 <body>
-<form class="form-signin" action="kernel/valida_login_usuarios.php" method="post" novalidate="novalidate">
+<?php
+    unset(
+            $_SESSION['usuarionome'],
+            $_SESSION['usuariousuario']
+    );
+    session_destroy();
+?>
+
+<form class="form-signin" action="kernel/valida_login_usuarios.php" method="post">
 
         <?php
             if(isset($_SESSION['login_erro'])){//verifica se existe variavel com o indice login_erro
@@ -30,13 +38,14 @@ session_start();
         <h1 class="h3 mb-3 font-weight-normal">Controle de Ocorrencia</h1>
         <p>Bem Vindo ao Sistema de Controle de Ocorrências</p>
     </div>
+    <!--
     <div class="mb-3">
         <select class="custom-select custom-select-lg" name="empresa">
             <option value="1">Empresa 1</option>
             <option value="2">Empresa 2</option>
         </select>
     </div>
-
+    -->
     <div class="form-label-group">
         <input type="text" id="id_usuario" name="usuario" class="form-control" placeholder="Usuário" required autofocus>
         <label for="id_usuario">Usuários</label>

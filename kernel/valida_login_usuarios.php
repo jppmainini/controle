@@ -21,6 +21,12 @@ if(isset($_POST['btn_login'])){
     if(empty($resultado)){
         $_SESSION['login_erro'] = "<div class=\"alert alert-danger\" role=\"alert\">Usuário ou Senha Inválidos</div>";
         header("Location: ../login.php");
+    }else{
+        //DEFINE VALORES ATRIBUIDOS NA SESSAO DO USUARIO
+        $_SESSION['usuarionome'] = $resultado['usernome'] ;
+        $_SESSION['usuariousuario'] = $resultado['userusuario'] ;
+
+        header("Location: ../index.php");
     }
 
 
@@ -28,6 +34,4 @@ if(isset($_POST['btn_login'])){
 
 
 
-}else{
-    echo "Errado";
 }
