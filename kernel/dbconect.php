@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";         //servidor onde o banco de dados esta hospedado
-$user = "root";         //usuario do banco de dados
+$user = "jeferson";         //usuario do banco de dados
 $password = "893951";     //senha do banco de dados
 $database = "controle";     //nome da base de dados
 
