@@ -1,0 +1,6 @@
+.hover-item ul li a:hover{
+    color: #428bca;
+}
+.flex-column li{
+    margin: 0;
+}

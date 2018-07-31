@@ -4,20 +4,29 @@ include_once ("kernel/seguranca.php");
 include_once ("kernel/dbconect.php");
 
 ?>
-
 <!doctype html>
 <html lang="pt-br">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/icon.png">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/dashboard.css">
-    <link rel="stylesheet" href="static/css/float-label.css">
+    <title>Dellasta Informática - Admin</title>
 
-    <title><?php echo $pagina." | "?>Dellasta Informática</title>
+    <!-- Bootstrap core CSS -->
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/nav_custom.css">
+
+    <!-- FONTS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/dashboard.css" rel="stylesheet">
+
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="static/bootstrap/js/jquery-3.3.1.slim.min.js"></script>
 </head>
 <body>
 <!-- INICIO NAVBAR -->
@@ -41,22 +50,31 @@ include_once ("kernel/dbconect.php");
         <!-- INICIO NAVBAR -->
         <?php include_once ('navmenulateral.php')?>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-2">
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-4 px-2">
             <?php
             $link = $_GET["link"];
             // DASHBOARD
-            $pag[1] = "dashboard.php";
+            $pag['dashboard'] = "forms/dashboard/dashboard.php";
+
+
+            //CADASTRO USUARIOS
+            $pag['usuarios'] = "forms/cadastros/usuarios/lista_usuarios.php";
+
+
 
             if(!empty($link)){
                 if(file_exists($pag[$link])){
                     include $pag[$link];
                 }
                 else{
-                    include "dashboard.php";
+                    //include "forms/dashboard/dashboard.php";
+                    header("Location: index.php?link=dashboard");
                 }
             }
             else{
-                include "dashboard.php";
+                //include "forms/dashboard/dashboard.php";
+                header("Location: index.php?link=dashboard");
             }
             ?>
 
