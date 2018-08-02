@@ -1,6 +1,17 @@
 <?php
 $title = "Cadastro de Usuários ";
 $tipo = "novo";
+$linhas = array(
+    'userid' => '',
+    'userdatainclusao' => '',
+    'userdataalteracao' => '',
+    'usernome' => '',
+    'userusuario' => '',
+    'usersenha' => '',
+    'useremail' => '',
+    'nivel_acesso' => '',
+
+);
 
 if($_GET['link'] == 'editar-usuario'){
     $userid = $_GET['id'];

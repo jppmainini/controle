@@ -21,7 +21,7 @@ if(isset($_POST['btn-gravar-usuario'])){
         $maxid = ++$result['id'];
         $query = mysqli_query($dbConect, "insert into usuarios(userid,usernome,useremail,userusuario,usersenha,nivel_acesso,userdatainclusao) values ($maxid,'$usernome','$useremail','$userusuario','$usersenha',$nivel_acesso,NOW())") or die(mysqli_error($dbConect));
         if(mysqli_affected_rows($dbConect) != 0){
-            $_SESSION['cad-user-sucess'] = "<div class=\"alert alert-primary alert-dismissible fade show\" role=\"alert\">
+            $_SESSION['cad-user-sucess'] = "<div class=\"alert alert-primary alert-dismissible fade show text-center\" role=\"alert\">
                                               <strong>$usernome</strong> - Cadastrado com Sucesso
                                               <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                                                 <span aria-hidden=\"true\">&times;</span>
@@ -34,7 +34,7 @@ if(isset($_POST['btn-gravar-usuario'])){
     if($_POST['tipo'] == "edit"){
         $query = mysqli_query($dbConect, "update usuarios set usernome = '$usernome', useremail = '$useremail', userusuario = '$userusuario', usersenha = '$usersenha', nivel_acesso = $nivel_acesso,userdataalteracao = NOW() where userid = $userid") or die(mysqli_error($dbConect));
         if(mysqli_affected_rows($dbConect) != 0){
-            $_SESSION['cad-user-sucess'] = "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">
+            $_SESSION['cad-user-sucess'] = "<div class=\"alert alert-warning alert-dismissible fade show text-center\" role=\"alert\">
                                               <strong>$usernome</strong> - Alterado com Sucesso.
                                               <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                                                 <span aria-hidden=\"true\">&times;</span>
@@ -51,7 +51,7 @@ if($_GET['link'] == 'deleta-usuario'){
     $id = $_GET['del_id'];
 
     if($id == 1){
-        $_SESSION['cad-user-sucess'] = "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+        $_SESSION['cad-user-sucess'] = "<div class=\"alert alert-danger alert-dismissible fade show text-center\" role=\"alert\">
                                               Nao é possivel excluir esse usuario.
                                               <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                                                 <span aria-hidden=\"true\">&times;</span>
@@ -62,7 +62,7 @@ if($_GET['link'] == 'deleta-usuario'){
     else {
         $query = mysqli_query($dbConect, "delete from usuarios where userid = $id");
         if (mysqli_affected_rows($dbConect) != 0) {
-            $_SESSION['cad-user-sucess'] = "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+            $_SESSION['cad-user-sucess'] = "<div class=\"alert alert-danger alert-dismissible fade show text-center\" role=\"alert\">
                                                   Excluido com Sucesso.
                                                   <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                                                     <span aria-hidden=\"true\">&times;</span>
