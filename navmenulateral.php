@@ -28,8 +28,8 @@
                         </div>
                     </div>
                 </li>
-
-                <!-- CLIENTES -->
+<!--
+                <!-- CLIENTES --
                 <li class="nav-item collapsed border-bottom" data-toggle="collapse" data-target="#clientes" aria-expanded="false" aria-controls="collapseThree">
                     <a class="nav-link" href="#">
                         <span data-feather="users"></span>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </li>
-<!--
+
                 <!-- ORDENS --
                 <li class="nav-item">
                     <a class="nav-link" href="#">

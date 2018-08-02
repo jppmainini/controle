@@ -6,7 +6,7 @@
     <h1 class="h2">Cadastro de Usuários</h1>
     <div class="btn-toolbar mb-1 mb-md-0">
         <div class="btn mr-0">
-            <a href="admin.php?link=3"><button class="btn btn-sm btn-primary"><i class="fas fa-user-plus"></i> Novo</button></a>
+            <a href="index.php?link=novo-usuario"><button class="btn btn-sm btn-primary" name="novo-usuario"><i class="fas fa-user-plus"></i> Novo</button></a>
             <button class="btn btn-sm btn-danger" id="delsel"><i class="far fa-trash-alt"></i> Delete</button>
         </div>
         <button class="btn btn-sm btn-outline-secondary dropdown-toggle pt-1">
@@ -16,13 +16,13 @@
     </div>
 </div>
 
-<form method="post" action="">
-    <input class="form-control w-100" type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar" aria-label="Search">
+<!--<form method="post" action="">-->
+    <input class="form-control w-100" type="search" name="pesquisa" id="pesquisa" placeholder="Pesquisar" aria-label="Search" autocomplete="off">
     <p>
         <?php
-        if(isset($_SESSION['cadusersucess'])){//isset mandar imprimir
-            echo $_SESSION['cadusersucess']; //echo imprimir
-            unset($_SESSION['cadusersucess']); //unset destoi a variavel
+        if(isset($_SESSION['cad-user-sucess'])){//isset mandar imprimir
+            echo $_SESSION['cad-user-sucess']; //echo imprimir
+            unset($_SESSION['cad-user-sucess']); //unset destoi a variavel
         }
         ?>
     </p>
@@ -64,52 +64,46 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#gridSystemModal<?php echo $linhas['userid']?>" title="Visualizar" ><i class="far fa-eye"></i></button>
-                    <a href='admin.php?link=4&id=<?php echo $linhas['userid'];?>'><button type="button" class="btn btn-warning btn-sm text-white" title="Editar" ><i class="far fa-edit"></i></button></a>
+                    <a href='index.php?link=editar-usuario&id=<?php echo $linhas['userid'];?>'><button type="button" class="btn btn-warning btn-sm text-white" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
                     <button type="button" class="btn btn-danger btn-sm text-white" title="Excluir" onclick="deleteuser(<?php echo $linhas['userid'];?>)" ><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
-        </tbody>
-    </table>
-</form>
-<!-- INICIO DO MODAL -->
-    <div id="gridSystemModal<?php echo $linhas['userid']?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
-        <div class="modal-lg modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="gridModalLabel">Visualização do Usuário</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid bd-example-row ">
-                        <div class="row">
-                            <div class="col-md-12"><strong>Código: </strong><?php echo $linhas['userid']?></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9"><strong>Nome: </strong> <?php echo $linhas['usernome']?></div>
-                            <div class="col-md-3"><strong>Usuário: </strong> <?php echo $linhas['userusuario']?></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9"><strong>eMail: </strong> <?php echo $linhas['useremail']?></div>
-                            <div class="col-md-3"><strong>Nível: </strong> <?php echo $linhas['nivel_acesso']?></div>
+                <!-- INICIO DO MODAL -->
+                <div id="gridSystemModal<?php echo $linhas['userid']?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+                    <div class="modal-lg modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="gridModalLabel">Visualização do Usuário</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid bd-example-row ">
+                                    <div class="row">
+                                        <div class="col-md-12"><strong>Código: </strong><?php echo $linhas['userid']?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-9"><strong>Nome: </strong> <?php echo $linhas['usernome']?></div>
+                                        <div class="col-md-3"><strong>Usuário: </strong> <?php echo $linhas['userusuario']?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-9"><strong>eMail: </strong> <?php echo $linhas['useremail']?></div>
+                                        <div class="col-md-3"><strong>Nível: </strong> <?php echo $linhas['nivel_acesso']?></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- FIM MODAL -->
-<?php
-}
-?>
-
-
-
-
-
-
+                <!-- FIM MODAL -->
+                <?php
+            }
+            ?>
+        </tbody>
+    </table>
+<!--</form>-->
 
 <script language="JavaScript">
     /*function deleteuser(delid) {
@@ -122,7 +116,7 @@
     function deleteuser(delid) {
         var resposta = confirm("Deseja realmente excluir o usuario ?");
         if (resposta == true){
-            window.location.href = "processa/pro_excluir_usuario.php?del_id="+delid;
+            window.location.href = "index.php?link=deleta-usuario&del_id="+delid;
         }
     }
     // CHECKBOX NA GRID
@@ -149,7 +143,7 @@
                 } else {
                     alert(id);
                     $.ajax({
-                        url: "admin.php?link=103",
+                        url: "processa/cadastros/usuarios/pro_cad_usuarios.php",
                         method: "POST",
                         data: {id: id},
                         success: function() {
@@ -168,15 +162,37 @@
         });
     });
 
-    // PESQUISA
+    const inputEle = document.getElementById('pesquisa');
+    inputEle.addEventListener('keyup', function(e){
+        var key = e.which || e.keyCode;
+        if (key == 13) {
+            // PESQUISA
+            $(function () {
+                var pesquisa = $(inputEle).val();
+                if((pesquisa != '') || (pesquisa == '')){
+                    var dados = {
+                        palavra : pesquisa
+                    }
+                    $.post('processa/cadastros/usuarios/busca_usuario.php', dados, function (retorna) {
+                        $(".resultado").html(retorna);
+                    });
+                }else {
+                    $(".resultado").html(retorna);
+                }
+            });
+        }
+    });
+
+    /*
+    //PESQUISA
     $(function () {
         $("#pesquisa").keyup(function () {
             var pesquisa = $(this).val();
-            if(pesquisa != ''){
+            if((pesquisa != '') || (pesquisa == '')){
                 var dados = {
                     palavra : pesquisa
                 }
-                $.post('processa/cadusuarios/busca_usuario.php', dados, function (retorna) {
+                $.post('processa/cadastros/usuarios/busca_usuario.php', dados, function (retorna) {
                     $(".resultado").html(retorna);
                 });
             }else {
@@ -184,5 +200,5 @@
             }
         });
     });
-
+*/
 </script>

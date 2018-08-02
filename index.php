@@ -26,12 +26,13 @@ include_once ("kernel/dbconect.php");
     <link href="static/css/dashboard.css" rel="stylesheet">
 
     <!-- JAVASCRIPT -->
-    <script type="text/javascript" src="static/bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <!--<script type="text/javascript" src="static/bootstrap/js/jquery-3.3.1.slim.min.js"></script>-->
+    <script src="static/js/jquery.3.3.1.js"></script>
+
 </head>
 <body>
 <!-- INICIO NAVBAR -->
-<nav class="navbar navbar-dark fixed-top bg-primary
- flex-md-nowrap p-0 shadow">
+<nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow-sm">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><?php echo $_SESSION['usuarionome']?><br>
         <h6 class="badge m-md-0 "><?php echo $_SESSION['usuariousuario']?></h6>
     </a>
@@ -51,7 +52,7 @@ include_once ("kernel/dbconect.php");
         <?php include_once ('navmenulateral.php')?>
 
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-4 px-2">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-5 px-2">
             <?php
             $link = $_GET["link"];
             // DASHBOARD
@@ -60,6 +61,11 @@ include_once ("kernel/dbconect.php");
 
             //CADASTRO USUARIOS
             $pag['usuarios'] = "forms/cadastros/usuarios/lista_usuarios.php";
+            $pag['editar-usuario'] = "forms/cadastros/usuarios/usuarios.php";
+            $pag['novo-usuario'] = "forms/cadastros/usuarios/usuarios.php";
+            $pag['gravar-usuario'] = "processa/cadastros/usuarios/pro_cad_usuarios.php";
+            $pag['deleta-usuario'] = "processa/cadastros/usuarios/pro_cad_usuarios.php";
+            $pag['deleta-multi-usuario'] = "forms/cadastros/usuarios/confirma_exclusao.php";
 
 
 
@@ -86,7 +92,7 @@ include_once ("kernel/dbconect.php");
 <!-- Optional JavaScript -->
 <script>window.jQuery || document.write('<script src="static/bootstrap/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="static/bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+<!--<script src="static/bootstrap/js/jquery-3.3.1.slim.min.js"></script>-->
 <script src="static/bootstrap/js/popper.min.js"></script>
 <script src="static/bootstrap/js/bootstrap.min.js"></script>
 
