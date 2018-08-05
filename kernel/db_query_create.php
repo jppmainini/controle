@@ -28,12 +28,52 @@ if(isset($_POST["btn_createdb"])){
         $existTable = ['Usuarios: ' => 'Já Existe'];
     }
 
+    //CADASTRO DE OCORRENCIAS
+    $result = mysqli_query($dbConect, "show tables like 'ocorrencias'") or die (mysqli_error($dbConect));
+    $tableExist = mysqli_num_rows($result);
+    if($tableExist != 1){
+        $tbOcorrencias = "create table ocorrencias(
+                          ocor_id int not null auto_increment primary key,
+                          ocor_cliente varchar (250) not null,
+                          ocor_analista integer,
+                          ocor_programador integer,
+                          ocor_situacao integer ,
+                          ocor_solicitacao text,                                                
+                          ocor_datacriacao datetime,
+                          ocor_datafinalização datetime
+        )";
+        mysqli_query($dbConect, $tbOcorrencias) or die(mysqli_error($dbConect));
+        $existTable = ['Ocorrencias: ' => 'Criado com sucesso'];
+    }else{
+        $existTable = ['Ocorrencias: ' => 'Já Existe'];
+    }
 
-
+    //COMENTARIOS DAS OCORRENCIAS
+    $result = mysqli_query($dbConect, "show tables like 'ocorrencias_comentarios'") or die (mysqli_error($dbConect));
+    $tableExist = mysqli_num_rows($result);
+    if($tableExist != 1){
+        $tbOcorComentarios = "create table ocorrencias_comentarios(
+                          coment_id int not null auto_increment primary key,
+                          coment_ocor_id integer ,
+                          coment_comentario text,
+                          coment_data_comentario datetime,
+                          coment_user_id integer ,
+                          
+                          
+        )";
+        mysqli_query($dbConect, $tbOcorComentarios) or die(mysqli_error($dbConect));
+        $existTable = ['Comentarios de Ocorrencias: ' => 'Criado com sucesso'];
+    }else{
+        $existTable = ['Comentarios de Ocorrencias: ' => 'Já Existe'];
+    }
 
     // MENSAGENS DE ERRO NA CRIACAO
     //no textarea html
 }
+
+
+
+
 //var_dump($_POST);
 unset($_POST);
 session_destroy();

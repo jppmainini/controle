@@ -29,7 +29,7 @@
 
     <!--<h2>Section title</h2>-->
     <div class="table-responsive">
-        <table class="table table-sm table-hover">
+        <table class="table table-sm table-bordered table-hover">
             <thead>
             <tr>
                 <!--<th><input type="checkbox" class="m-md-1" name="checkboxall" id="checkboxall"></th>-->
@@ -45,12 +45,12 @@
             <tbody class="resultado">
             <?php while ($linhas = mysqli_fetch_array($resultado)){?>
             <tr  id="resultado">
-                <td><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['userid']?>" ></td>
-                <td><?php echo $linhas['userid']?></td>
-                <td><?php echo $linhas['usernome']?></td>
-                <td><?php echo $linhas['useremail']?></td>
-                <td><?php echo $linhas['userusuario']?></td>
-                <td><?php
+                <td class="text-center" style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['userid']?>" ></td>
+                <td style="width: 5%"><?php echo $linhas['userid']?></td>
+                <td style="width: 20%"><?php echo $linhas['usernome']?></td>
+                <td style="width: 25%"><?php echo $linhas['useremail']?></td>
+                <td style="width: 15%"><?php echo $linhas['userusuario']?></td>
+                <td style="width: 10%"><?php
                     if ($linhas['nivel_acesso'] == 1){
                         echo 'Administrador';
                     }

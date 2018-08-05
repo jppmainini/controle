@@ -9,25 +9,6 @@
                         Dashboard <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <!-- PARAMENTROS -->
-                <li class="nav-item collapsed border-bottom" data-toggle="collapse" data-target="#usuarios" aria-expanded="false" aria-controls="collapseThree">
-                    <a class="nav-link" href="#">
-                        <span data-feather="settings"></span>
-                        Parâmetros
-                    </a>
-                    <div id="usuarios" class="collapse hover-item" aria-labelledby="headingThree" data-parent="#accordionExample">
-                        <div class="card-body border">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="admin.php?link=20"><span><i class="far fa-building " style="padding: 5px"></i></span>Empresas</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="index.php?link=usuarios"><span><i class="fas fa-users sm" style="padding: 5px"></i></span>Usuários</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
 <!--
                 <!-- CLIENTES --
                 <li class="nav-item collapsed border-bottom" data-toggle="collapse" data-target="#clientes" aria-expanded="false" aria-controls="collapseThree">
@@ -77,15 +58,15 @@
 -->
             </ul>
 
-            <!-- MOVIMENTOS -->
+<!--
+            <!-- MOVIMENTOS --
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>Movimentos</span>
                 <a class="d-flex align-items-center text-muted" href="#">
                     <span data-feather="plus-circle"></span>
                 </a>
             </h6>
-
-            <!--FINANCEIRO-->
+            <!--FINANCEIRO--
             <ul class="nav flex-column ">
                 <li class="nav-item collapsed border-bottom hover-item" data-toggle="collapse" data-target="#financeiro" aria-expanded="false" aria-controls="collapseThree">
                     <a class="nav-link" href="#">
@@ -106,9 +87,10 @@
                     </div>
                 </li>
             </ul>
+-->
 
             <!--CONTROLE DE OCORRENCIA-->
-            <ul class="nav flex-column ">
+            <ul class="nav flex-column">
                 <li class="nav-item collapsed border-bottom hover-item" data-toggle="collapse" data-target="#ocorrencia" aria-expanded="false" aria-controls="collapseThree">
                     <a class="nav-link" href="#">
                         <span data-feather="file-text"></span>
@@ -118,13 +100,44 @@
                         <div class="card-body border">
                             <ul class="nav flex-column">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="admin.php?link=2"><span><i class="far fa-file-alt" style="padding: 5px"></i></span>Gerar Chave</a>
+                                    <a class="nav-link" href="index.php?link=ocorrencias"><span><i class="far fa-file-alt" style="padding: 5px"></i></span>Ocôrrencias</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </li>
             </ul>
+            <div class="">
+                <!-- CONFIGURAÇÕES -->
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Configurações</span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                        <span data-feather="plus-circle"></span>
+                    </a>
+                </h6>
+
+                <!--PARAMETROS-->
+                <ul class="nav flex-column">
+                    <li class="nav-item collapsed border-bottom" data-toggle="collapse" data-target="#usuarios" aria-expanded="false" aria-controls="collapseThree">
+                        <a class="nav-link" href="#">
+                            <span data-feather="settings"></span>
+                            Parâmetros
+                        </a>
+                        <div id="usuarios" class="collapse hover-item" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body border">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="admin.php?link=20"><span><i class="far fa-building " style="padding: 5px"></i></span>Empresas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.php?link=usuarios"><span><i class="fas fa-users sm" style="padding: 5px"></i></span>Usuários</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

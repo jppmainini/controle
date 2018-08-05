@@ -13,13 +13,12 @@ if(($usuarios != '') or $usuarios == '') {
         while ($linhas = mysqli_fetch_array($resultususarios)) {
             ?>
             <tr>
-                <td><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]"
-                           value="<?php echo $linhas['userid'] ?>"></td>
-                <td><?php echo $linhas['userid'] ?></td>
-                <td><?php echo $linhas['usernome'] ?></td>
-                <td><?php echo $linhas['useremail'] ?></td>
-                <td><?php echo $linhas['userusuario'] ?></td>
-                <td><?php
+                <td style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['userid'] ?>"></td>
+                <td style="width: 5%"><?php echo $linhas['userid'] ?></td>
+                <td style="width: 20%"><?php echo $linhas['usernome'] ?></td>
+                <td style="width: 25%"><?php echo $linhas['useremail'] ?></td>
+                <td style="width: 15%"><?php echo $linhas['userusuario'] ?></td>
+                <td style="width: 10%"><?php
                     if ($linhas['nivel_acesso'] == 1){
                         echo 'Administrador';
                     }

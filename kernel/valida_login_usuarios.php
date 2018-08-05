@@ -23,6 +23,7 @@ if(isset($_POST['btn_login'])){
         header("Location: ../login.php");
     }else{
         //DEFINE VALORES ATRIBUIDOS NA SESSAO DO USUARIO
+        $_SESSION['userid'] = $resultado['userid'] ;
         $_SESSION['usuarionome'] = $resultado['usernome'] ;
         $_SESSION['usuariousuario'] = $resultado['userusuario'] ;
 
