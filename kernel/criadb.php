@@ -28,43 +28,26 @@ if(isset($_POST["btn_createdb"])){
         $existTable = ['Usuarios: ' => 'Já Existe'];
     }
 
-    //CADASTRO DE OCORRENCIAS
+//CADASTRO DE OCORRENCIAS
     $result = mysqli_query($dbConect, "show tables like 'ocorrencias'") or die (mysqli_error($dbConect));
     $tableExist = mysqli_num_rows($result);
     if($tableExist != 1){
         $tbOcorrencias = "create table ocorrencias(
                           ocor_id int not null auto_increment primary key,
-                          ocor_cliente varchar (250) not null,
+                          ocor_cliente varchar(250) not null,
                           ocor_analista integer,
                           ocor_programador integer,
                           ocor_situacao integer ,
                           ocor_solicitacao text,                                                
                           ocor_datacriacao datetime,
-                          ocor_datafinalização datetime
+                          ocor_datafinalizacao datetime
         )";
+        echo $tbOcorrencias;
         mysqli_query($dbConect, $tbOcorrencias) or die(mysqli_error($dbConect));
+        //mysqli_query($dbConect, $tbOcorrencias) or die(mysqli_error($dbConect));
         $existTable = ['Ocorrencias: ' => 'Criado com sucesso'];
     }else{
         $existTable = ['Ocorrencias: ' => 'Já Existe'];
-    }
-
-    //COMENTARIOS DAS OCORRENCIAS
-    $result = mysqli_query($dbConect, "show tables like 'ocorrencias_comentarios'") or die (mysqli_error($dbConect));
-    $tableExist = mysqli_num_rows($result);
-    if($tableExist != 1){
-        $tbOcorComentarios = "create table ocorrencias_comentarios(
-                          coment_id int not null auto_increment primary key,
-                          coment_ocor_id integer ,
-                          coment_comentario text,
-                          coment_data_comentario datetime,
-                          coment_user_id integer ,
-                          
-                          
-        )";
-        mysqli_query($dbConect, $tbOcorComentarios) or die(mysqli_error($dbConect));
-        $existTable = ['Comentarios de Ocorrencias: ' => 'Criado com sucesso'];
-    }else{
-        $existTable = ['Comentarios de Ocorrencias: ' => 'Já Existe'];
     }
 
     // MENSAGENS DE ERRO NA CRIACAO
@@ -81,7 +64,7 @@ session_destroy();
 
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

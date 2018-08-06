@@ -4,6 +4,17 @@ include_once "kernel/dbconect.php";
 include_once "kernel/seguranca.php";
 
 $title = "Nova Ocôrrencia";
+$tipo = "novo";
+
+if($_GET['link'] == 'editar-ocorrencia'){
+    $title = "Editando Ocorrencia";
+    $tipo = "edit";
+    $ocor_id = $_GET['id'];
+    $queryOcorrencia = mysqli_query($dbConect,"select * from ocorrencias where ocor_id = $ocor_id limit 1");
+    $linhas = mysqli_fetch_assoc($queryOcorrencia);
+    var_dump($linhas);
+
+}
 
 ?>
 
@@ -12,15 +23,18 @@ $title = "Nova Ocôrrencia";
 </div>
 
 <form action="index.php?link=gravar-ocorrencia" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="ocor_id" value="<?php echo $ocor_id?>">
+    <input type="hidden" name="tipo" value="<?php echo $tipo?>">
+
     <div class="mt-4">
         <div class="card">
             <div class="card-header alert-info">
                 <div class="row">
                     <div class="col-3">
-                        Ocôrrencia: <strong>00000</strong>
+                        Ocôrrencia: <strong><?php echo $linhas['ocor_id']?></strong>
                     </div>
                     <div class="col-6">
-                        Criado: <strong> <?php echo "" ?></strong>
+                        Criado: <strong> <?php echo $linhas['ocor_datacriacao'] ?></strong>
                     </div>
                 </div>
             </div>
@@ -36,10 +50,13 @@ $title = "Nova Ocôrrencia";
                                 $queryUsuarios = mysqli_query($dbConect, "select * from usuarios");
                                 while ($usuarios = mysqli_fetch_array($queryUsuarios)){
                                     //echo '<option value="'.$usuarios['userid'].'">'.$usuarios['usernome'].'</option>';
-                                    ?>
-                                    <option value="<?php echo $usuarios['userid'] ?>"<?php if($usuarios['userid'] == $_SESSION['userid']){echo "selected"; } ?> ><?php echo $usuarios['usernome']?></option>
-
-                            <?php } ?>
+                                    if($tipo == 'edit'){
+                                        echo "<option value=".$usuarios['userid']." ".(($usuarios['userid'] == $linhas['ocor_analista'])? ' selected':'')." >".$usuarios['usernome']."</option>";
+                                    }
+                                    if($tipo == 'novo'){
+                                        echo "<option value=".$usuarios['userid']." ".(($usuarios['userid'] == $_SESSION['userid'])? ' selected':'')." >".$usuarios['usernome']."</option>";
+                                    }
+                                } ?>
                             </select>
                         </div>
                     </div>
@@ -49,11 +66,15 @@ $title = "Nova Ocôrrencia";
                                 <span class="input-group-text font-weight-bold" id="inputGroup-sizing-sm2">Programador:</span>
                             </div>
                             <select class="form-control" name="programador_id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm2">
-                                <option value="" selected>...</option>
                                 <?php
-                                $queryUsuarios = mysqli_query($dbConect, "select * from usuarios");
-                                while ($programador = mysqli_fetch_array($queryUsuarios)){
-                                    echo '<option value="'.$programador['usernome'].'">'.$programador['usernome'].'</option>';
+                                $queryProgramador = mysqli_query($dbConect, "select * from usuarios");
+                                while ($programador = mysqli_fetch_array($queryProgramador)){
+                                    if($tipo == 'edit'){
+                                        echo "<option value=".$programador['userid']." ".(($programador['userid'] == $linhas['ocor_programador'])? ' selected':'')." >".$programador['usernome']."</option>";
+                                    }
+                                    if($tipo == 'novo'){
+                                        echo "<option value=".$programador['userid']." ".(($programador['userid'] == $_SESSION['userid'])? ' selected':'')." >".$programador['usernome']."</option>";
+                                    }
                                 } ?>
                             </select>
                         </div>
@@ -64,9 +85,9 @@ $title = "Nova Ocôrrencia";
                                 <span class="input-group-text font-weight-bold" id="inputGroup-sizing-sm2">Situação:</span>
                             </div>
                             <select class="form-control" name="situacao_id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm2">
-                                <option value="1" selected>Testar</option>
-                                <option value="2" >Analisar</option>
-                                <option value="3" >Programar</option>
+                                <option value="1" <?php echo (($linhas['ocor_situacao'] == 1)? 'selected':'') ?>>Testar</option>
+                                <option value="2" <?php echo (($linhas['ocor_situacao'] == 2)? 'selected':'') ?> >Analisar</option>
+                                <option value="3" <?php echo (($linhas['ocor_situacao'] == 3)? 'selected':'') ?>>Programar</option>
                             </select>
                         </div>
                     </div>
@@ -77,12 +98,12 @@ $title = "Nova Ocôrrencia";
                             <div class="input-group-prepend">
                                 <span class="input-group-text font-weight-bold" id="inputGroup-sizing-sm2">Cliente:</span>
                             </div>
-                            <input type="text" class="form-control" name="nome_cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm2">
+                            <input type="text" class="form-control" name="nome_cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm2" value="<?php echo $linhas['ocor_cliente']?>">
                         </div>
                     </div>
                 </div>
                 <h1 class="h5 font-weight-bold mt-2">Solicitação:</h1>
-                <textarea class="form-control" rows="10" name="solicitacao"></textarea>
+                <textarea class="form-control" rows="10" name="solicitacao"><?php echo $linhas['ocor_solicitacao']?></textarea>
 
                 <div class="input-group mb-3 mt-4">
                     <div class="input-group-prepend">

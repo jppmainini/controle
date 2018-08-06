@@ -71,7 +71,9 @@ include_once ("kernel/dbconect.php");
             //OCORRENCIAS
             $pag['ocorrencias'] = "forms/controle_ocorrencias/listar_ocorrencias.php";
             $pag['nova-ocorrencia'] = "forms/controle_ocorrencias/ocorrencias.php";
+            $pag['editar-ocorrencia'] = "forms/controle_ocorrencias/ocorrencias.php";
             $pag['gravar-ocorrencia'] = "processa/controle_ocorrencias/pro_cad_ocorrencias.php";
+            $pag['deleta-ocorrencia'] = "processa/controle_ocorrencias/pro_cad_ocorrencias.php";
 
 
 
