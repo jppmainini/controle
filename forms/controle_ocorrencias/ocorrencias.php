@@ -1,10 +1,18 @@
 <?php
-session_start();
+
 include_once "kernel/dbconect.php";
 include_once "kernel/seguranca.php";
 
 $title = "Nova Ocôrrencia";
 $tipo = "novo";
+$linhas = array(
+    'ocor_id' => '',
+    'ocor_datacriacao' => '',
+    'ocor_situacao' => '',
+    'ocor_solicitacao' => '',
+    'ocor_cliente' => '',
+    '' => ''
+);
 
 if($_GET['link'] == 'editar-ocorrencia'){
     $title = "Editando Ocorrencia";
@@ -12,21 +20,21 @@ if($_GET['link'] == 'editar-ocorrencia'){
     $ocor_id = $_GET['id'];
     $queryOcorrencia = mysqli_query($dbConect,"select * from ocorrencias where ocor_id = $ocor_id limit 1");
     $linhas = mysqli_fetch_assoc($queryOcorrencia);
-    var_dump($linhas);
+    //var_dump($linhas);
 
 }
 
 ?>
 
-<div class="border-bottom">
-    <h1><?php echo $title?></h1>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom ">
+    <h1 class="h3"><?php echo $title?></h1>
 </div>
 
 <form action="index.php?link=gravar-ocorrencia" method="post" enctype="multipart/form-data">
     <input type="hidden" name="ocor_id" value="<?php echo $ocor_id?>">
     <input type="hidden" name="tipo" value="<?php echo $tipo?>">
 
-    <div class="mt-4">
+    <div class="mt-4 small">
         <div class="card">
             <div class="card-header alert-info">
                 <div class="row">
@@ -98,21 +106,15 @@ if($_GET['link'] == 'editar-ocorrencia'){
                             <div class="input-group-prepend">
                                 <span class="input-group-text font-weight-bold" id="inputGroup-sizing-sm2">Cliente:</span>
                             </div>
-                            <input type="text" class="form-control" name="nome_cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm2" value="<?php echo $linhas['ocor_cliente']?>">
+                            <input type="text" class="form-control" name="nome_cliente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm2" value="<?php echo $linhas['ocor_cliente']?>" required>
                         </div>
                     </div>
                 </div>
                 <h1 class="h5 font-weight-bold mt-2">Solicitação:</h1>
-                <textarea class="form-control" rows="10" name="solicitacao"><?php echo $linhas['ocor_solicitacao']?></textarea>
+                <textarea class="form-control" rows="10" name="solicitacao" required><?php echo $linhas['ocor_solicitacao']?></textarea>
 
                 <div class="input-group mb-3 mt-4">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-paperclip mr-1"></i>Anexo</span>
-                    </div>
-                    <div class="custom-file">
-                        <label class="custom-file-label" for="inputGroupFile01">Nenhum arquivo selecionado...</label>
-                        <input type="file" class="custom-file-input" name="anexos" id="inputGroupFile01">
-                    </div>
+                    <input type="file" class="form-control form-control-sm" name="upFiles[]" id="upFiles" multiple>
                 </div>
 
             </div>
@@ -131,4 +133,13 @@ if($_GET['link'] == 'editar-ocorrencia'){
             return true;
         }
     }
+
+    $(document).ready(function () {
+        $(document).click(function () {
+            var files = $("#upFiles")[0].files;
+            for (var i = 0; i < files.length; i++){
+                alert(files[i].name);
+            }
+        })
+    })
 </script>

@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="bc28370b-a829-47bb-91d7-2367f2c73880" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/cadastros/usuarios/usuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/cadastros/usuarios/usuarios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/controle_ocorrencias/ocorrencias.php" beforeDir="false" afterPath="$PROJECT_DIR$/forms/controle_ocorrencias/ocorrencias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel/dbconect.php" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/dbconect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processa/cadastros/usuarios/pro_cad_usuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/processa/cadastros/usuarios/pro_cad_usuarios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navmenulateral.php" beforeDir="false" afterPath="$PROJECT_DIR$/navmenulateral.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sisdell/siteDellasta/.idea/Dellasta.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../sisdell/siteDellasta/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sisdell/siteDellasta/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sisdell/siteDellasta/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sisdell/siteDellasta/.idea/workspace.xml" afterDir="false" />
@@ -19,7 +22,65 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ocorrencias.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/ocorrencias.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="137" column="25" selection-start-line="137" selection-start-column="25" selection-end-line="137" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listar_ocorrencias_lista.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias_lista.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="103" selection-start-line="103" selection-end-line="103" />
+              <folding>
+                <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listar_ocorrencias.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-63">
+              <caret line="95" column="158" lean-forward="true" selection-start-line="95" selection-start-column="106" selection-end-line="95" selection-end-column="158" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lista_usuarios.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/lista_usuarios.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="132" column="27" selection-start-line="132" selection-start-column="27" selection-end-line="132" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-522">
+              <caret line="72" column="90" selection-start-line="72" selection-start-column="90" selection-end-line="72" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pro_cad_ocorrencias.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/processa/controle_ocorrencias/pro_cad_ocorrencias.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-51" />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,14 +90,19 @@
       <list>
         <option value="$PROJECT_DIR$/forms/dashboard/dashboard.php" />
         <option value="$PROJECT_DIR$/forms/cadastros/cadastro_clientes/lista_clientes.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/navmenulateral.php" />
         <option value="$PROJECT_DIR$/../sisdell/siteDellasta/admin/forms/cadastros/usuarios/listar_usuarios.php" />
         <option value="$PROJECT_DIR$/forms/cadastros/usuarios/lista_usuarios.php" />
         <option value="$PROJECT_DIR$/forms/cadastros/usuarios/editar_usuarios.php" />
+        <option value="$PROJECT_DIR$/processa/cadastros/usuarios/pro_cad_usuarios.php" />
         <option value="$PROJECT_DIR$/kernel/dbconect.php" />
         <option value="$PROJECT_DIR$/forms/cadastros/usuarios/usuarios.php" />
-        <option value="$PROJECT_DIR$/processa/cadastros/usuarios/pro_cad_usuarios.php" />
+        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias.php" />
+        <option value="$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias_tabela.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/navmenulateral.php" />
+        <option value="$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias_lista.php" />
+        <option value="$PROJECT_DIR$/forms/controle_ocorrencias/ocorrencias.php" />
       </list>
     </option>
   </component>
@@ -53,7 +119,7 @@
       <path value="$PROJECT_DIR$/../sisdell/siteDellasta/css/slick/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="693" />
     <option name="y" value="17" />
     <option name="width" value="694" />
@@ -67,6 +133,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -95,6 +162,12 @@
             <path>
               <item name="controle" type="b2602c69:ProjectViewProjectNode" />
               <item name="controle" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+              <item name="controle_ocorrencias" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="controle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="controle" type="462c0819:PsiDirectoryNode" />
               <item name="kernel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -115,11 +188,16 @@
               <item name="cadastros" type="462c0819:PsiDirectoryNode" />
               <item name="usuarios" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="controle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="controle" type="462c0819:PsiDirectoryNode" />
+              <item name="processa" type="462c0819:PsiDirectoryNode" />
+              <item name="controle_ocorrencias" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -159,14 +237,21 @@
       <workItem from="1533036990553" duration="9420000" />
       <workItem from="1533070271343" duration="7000" />
       <workItem from="1533210545911" duration="2587000" />
+      <workItem from="1533234798827" duration="131000" />
+      <workItem from="1533558316034" duration="270000" />
+      <workItem from="1533562671617" duration="1629000" />
+      <workItem from="1533579186487" duration="1403000" />
+      <workItem from="1533732996601" duration="7546000" />
+      <workItem from="1533911217011" duration="10747000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12014000" />
+    <option name="totallyTimeSpent" value="33740000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -175,7 +260,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32838285" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21482602" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23373677" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -197,6 +282,75 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/ocorrencias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="67" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processa/controle_ocorrencias/pro_cad_ocorrencias.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/usuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/ocorrencias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/usuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/ocorrencias.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/usuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
@@ -218,13 +372,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/editar_usuarios.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/editar_usuarios.php" />
     <entry file="file://$PROJECT_DIR$/../sisdell/siteDellasta/admin/forms/cadastros/usuarios/ditar_usuario.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -249,13 +397,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/editar_usuarios.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/editar_usuarios.php" />
     <entry file="file://$PROJECT_DIR$/../sisdell/siteDellasta/admin/forms/cadastros/usuarios/ditar_usuario.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -299,43 +441,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/db_query_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/editar_usuarios.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/db_query_create.php" />
+    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/editar_usuarios.php" />
     <entry file="file://$PROJECT_DIR$/../sisdell/siteDellasta/admin/forms/cadastros/usuarios/ditar_usuario.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/lista_usuarios.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/navmenulateral.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="77" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="82" column="58" selection-start-line="82" selection-start-column="58" selection-end-line="82" selection-end-column="58" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/processa/cadastros/usuarios/pro_cad_usuarios.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -344,17 +453,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/usuarios.php">
+    <entry file="file://$PROJECT_DIR$/kernel/dbconect.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/dbconect.php">
+    <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        <state relative-caret-position="17">
+          <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/usuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/navmenulateral.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret column="61" selection-start-column="61" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63">
+          <caret line="95" column="158" lean-forward="true" selection-start-line="95" selection-start-column="106" selection-end-line="95" selection-end-column="158" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-522">
+          <caret line="72" column="90" selection-start-line="72" selection-start-column="90" selection-end-line="72" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processa/controle_ocorrencias/pro_cad_ocorrencias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/cadastros/usuarios/lista_usuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="132" column="27" selection-start-line="132" selection-start-column="27" selection-end-line="132" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/listar_ocorrencias_lista.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
+          <folding>
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/controle_ocorrencias/ocorrencias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="137" column="25" selection-start-line="137" selection-start-column="25" selection-end-line="137" selection-end-column="25" />
         </state>
       </provider>
     </entry>

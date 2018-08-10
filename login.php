@@ -24,7 +24,7 @@ session_start()
     session_destroy();
 ?>
 
-<form class="form-signin" action="kernel/valida_login_usuarios.php" method="post">
+<form class="form-signin small" action="kernel/valida_login_usuarios.php" method="post">
 
         <?php
             if(isset($_SESSION['login_erro'])){//verifica se existe variavel com o indice login_erro
@@ -47,12 +47,12 @@ session_start()
     </div>
     -->
     <div class="form-label-group">
-        <input type="text" id="id_usuario" name="usuario" class="form-control" placeholder="Usuário" required autofocus>
+        <input type="text" id="id_usuario" name="usuario" class="form-control form-control-sm" placeholder="Usuário" required autofocus>
         <label for="id_usuario">Usuários</label>
     </div>
 
     <div class="form-label-group">
-        <input type="password" id="id_password" name="senha" class="form-control" placeholder="Senha" required>
+        <input type="password" id="id_password" name="senha" class="form-control form-control-sm" placeholder="Senha" required>
         <label for="id_password">Senha</label>
     </div>
 
@@ -61,7 +61,7 @@ session_start()
             <input type="checkbox" value="remember-me"> Manter Conectado.
         </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn_login" >Entrar</button>
+    <button class="btn btn-l btn-sm g btn-primary btn-block" type="submit" name="btn_login" >Entrar</button>
     <p class="mt-5 mb-3 text-muted text-center">&copy; 2018</p>
 </form>
 

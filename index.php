@@ -52,7 +52,7 @@ include_once ("kernel/dbconect.php");
         <?php include_once ('navmenulateral.php')?>
 
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-5 px-2">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-3 px-2">
             <?php
             $link = $_GET["link"];
             // DASHBOARD
@@ -69,7 +69,8 @@ include_once ("kernel/dbconect.php");
 
 
             //OCORRENCIAS
-            $pag['ocorrencias'] = "forms/controle_ocorrencias/listar_ocorrencias.php";
+            //$pag['ocorrencias'] = "forms/controle_ocorrencias/listar_ocorrencias.php";
+            $pag['ocorrencias'] = "forms/controle_ocorrencias/listar_ocorrencias_lista.php";
             $pag['nova-ocorrencia'] = "forms/controle_ocorrencias/ocorrencias.php";
             $pag['editar-ocorrencia'] = "forms/controle_ocorrencias/ocorrencias.php";
             $pag['gravar-ocorrencia'] = "processa/controle_ocorrencias/pro_cad_ocorrencias.php";
