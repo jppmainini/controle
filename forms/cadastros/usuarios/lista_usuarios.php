@@ -161,7 +161,7 @@
             }
         });
     });
-
+    //PESQUISA
     const inputEle = document.getElementById('pesquisa');
     inputEle.addEventListener('keyup', function(e){
         var key = e.which || e.keyCode;
