@@ -76,6 +76,9 @@ include_once ("kernel/dbconect.php");
             $pag['gravar-ocorrencia'] = "processa/controle_ocorrencias/pro_cad_ocorrencias.php";
             $pag['deleta-ocorrencia'] = "processa/controle_ocorrencias/pro_cad_ocorrencias.php";
 
+            //PARAMETROS DIVERSOS
+            $pag['paramDiversos'] = "forms/cadastros/diversos/situacoes/listar_situacoes.php";
+
 
 
             if(!empty($link)){

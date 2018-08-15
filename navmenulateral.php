@@ -1,4 +1,4 @@
-<nav class="col-md-2 d-none d-md-block bg-light sidebar small">
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
     <div class="accordion" id="accordionExample">
         <div class="sidebar-sticky">
             <ul class="nav flex-column">
@@ -131,6 +131,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="index.php?link=usuarios"><span><i class="fas fa-users sm" style="padding: 5px"></i></span>Usuários</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.php?link=paramDiversos"><span><i class="fas fa-cogs" style="padding: 5px"></i></span>Diversos</a>
                                     </li>
                                 </ul>
                             </div>

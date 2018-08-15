@@ -50,6 +50,24 @@ if(isset($_POST["btn_createdb"])){
         $existTable = ['Ocorrencias: ' => 'Já Existe'];
     }
 
+    //CADASTRO SITUAÇÕES
+    $result = mysqli_query($dbConect, "show tables like 'situacoes'") or die (mysqli_error($dbConect));
+    $tableExist = mysqli_num_rows($result);
+    if($tableExist != 1){
+        $tbSituacoes = "create table situacoes(
+                          situac_id int not null auto_increment primary key,
+                          situac_descricao varchar (150) not null ,                                                
+                          situac_datainclusao datetime,
+                          situac_dataalteracao datetime
+        )";
+        echo $tbSituacoes;
+        mysqli_query($dbConect, $tbSituacoes) or die(mysqli_error($dbConect));
+        //mysqli_query($dbConect, $tbOcorrencias) or die(mysqli_error($dbConect));
+        $existTable = ['Situacoes: ' => 'Criado com sucesso'];
+    }else{
+        $existTable = ['Situacoes: ' => 'Já Existe'];
+    }
+
     // MENSAGENS DE ERRO NA CRIACAO
     //no textarea html
 }

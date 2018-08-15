@@ -91,7 +91,7 @@ $totalOcorrencias = mysqli_num_rows($result);
             foreach ($linhas as $indice => $valor)
             ?>
             <tr class="font-weight-bold <?php echo $corStatus ?>"  id="resultado">
-                <td class="text-center" style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['userid']?>" ></td>
+                <td class="text-center" style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['ocor_id']?>" ></td>
                 <td style="width: 5%"><?php echo $linhas['ocor_id']?></td>
                 <td style="width: 20%"><?php echo $linhas['ocor_cliente']?></td>
                 <td style="width: 5%"><?php echo $linhas['ocor_situacao']?></td>
