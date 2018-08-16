@@ -33,7 +33,7 @@ include_once ("kernel/dbconect.php");
 <body>
 <!-- INICIO NAVBAR -->
 <nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow-sm">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><?php echo $_SESSION['usuarionome']?><br>
+    <a class="navbar-brand col-sm-3 col-md-2 p-0 pl-3" href="#"><?php echo $_SESSION['usuarionome']?><br>
         <h6 class="badge m-md-0 "><?php echo $_SESSION['usuariousuario']?></h6>
     </a>
 
@@ -77,7 +77,12 @@ include_once ("kernel/dbconect.php");
             $pag['deleta-ocorrencia'] = "processa/controle_ocorrencias/pro_cad_ocorrencias.php";
 
             //PARAMETROS DIVERSOS
-            $pag['paramDiversos'] = "forms/cadastros/diversos/situacoes/listar_situacoes.php";
+            //SITUACOES
+            $pag['situacoes'] = "forms/cadastros/diversos/situacoes/listar_situacoes.php";
+            $pag['nova-situacao'] = "forms/cadastros/diversos/situacoes/situacoes.php";
+            $pag['gravar-situacao'] = "processa/cadastros/diversos/situacoes/pro_situacoes.php";
+            $pag['editar-situacao'] = "forms/cadastros/diversos/situacoes/situacoes.php";
+            $pag['deleta-situacao'] = "processa/cadastros/diversos/situacoes/pro_situacoes.php";
 
 
 

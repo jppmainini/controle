@@ -1,25 +1,22 @@
 <?php
 $query = "select ocorrencias.ocor_id, ocorrencias.ocor_cliente, ocor_analista, ocor_programador, p1.usernome as analista, p2.usernome as programador,
-            ocorrencias.ocor_situacao, ocorrencias.ocor_solicitacao, ocorrencias.ocor_datacriacao,ocor_datafinalizacao
+            ocorrencias.ocor_situacao, situacoes.situac_descricao, ocorrencias.ocor_solicitacao, ocorrencias.ocor_datacriacao,ocor_datafinalizacao
             from ocorrencias
             inner join usuarios as p1 on ocorrencias.ocor_analista = p1.userid
             inner join usuarios as p2 on ocorrencias.ocor_programador = p2.userid	
+            inner join situacoes on ocorrencias.ocor_situacao = situacoes.situac_id
             order by ocorrencias.ocor_id";
 $result = mysqli_query($dbConect, $query);
 $totalOcorrencias = mysqli_num_rows($result);
 
 ?>
 
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom ">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 border-bottom ">
     <h1 class="h3">Ocôrrencias - <?php echo $totalOcorrencias ?></h1>
     <div class="btn-toolbar mb-1 mb-md-0">
         <div class="btn mr-0">
             <a href="index.php?link=nova-ocorrencia"><button class="btn btn-sm btn-primary" name="nova-ocorrencia"><i class="fas fa-user-plus"></i> Novo</button></a>
         </div>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle pt-1">
-            <span data-feather="calendar"></span>
-            This week
-        </button>
     </div>
 </div>
 <p>
@@ -58,8 +55,8 @@ $totalOcorrencias = mysqli_num_rows($result);
 </div>
 
 <div class="table-responsive">
-    <table class="table table-sm table-bordered table-hover table small">
-        <thead class="table-dark">
+    <table class="table table-sm table-hover ">
+        <thead class="table-primary small">
             <tr>
                 <!--<th><input type="checkbox" class="m-md-1" name="checkboxall" id="checkboxall"></th>-->
                 <th class="m-md-1">#</th>
@@ -75,26 +72,12 @@ $totalOcorrencias = mysqli_num_rows($result);
         </thead>
         <tbody class="resultado">
 
-        <?php while ($linhas = mysqli_fetch_array($result)){
-            if($linhas['ocor_situacao'] == '1'){
-                $linhas['ocor_situacao'] = 'Testar';
-                $corStatus = 'table-primary';
-            }
-            if($linhas['ocor_situacao'] == '2'){
-                $linhas['ocor_situacao'] = 'Analisar';
-                $corStatus = 'table-warning';
-            }
-            if($linhas['ocor_situacao'] == '3'){
-                $linhas['ocor_situacao'] = 'Programar';
-                $corStatus = 'table-success';
-            }
-            foreach ($linhas as $indice => $valor)
-            ?>
-            <tr class="font-weight-bold <?php echo $corStatus ?>"  id="resultado">
+        <?php while ($linhas = mysqli_fetch_array($result)){?>
+            <tr class=""  id="resultado">
                 <td class="text-center" style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['ocor_id']?>" ></td>
-                <td style="width: 5%"><?php echo $linhas['ocor_id']?></td>
+                <th style="width: 5%"><?php echo $linhas['ocor_id']?></th>
                 <td style="width: 20%"><?php echo $linhas['ocor_cliente']?></td>
-                <td style="width: 5%"><?php echo $linhas['ocor_situacao']?></td>
+                <td style="width: 5%"><?php echo $linhas['situac_descricao']?></td>
                 <td style="width: 15%"><?php echo $linhas['analista']?></td>
                 <td style="width: 15%"><?php echo $linhas['programador']?></td>
                 <td style="width: 15%"><?php echo $linhas['ocor_datacriacao']?></td>
@@ -121,20 +104,19 @@ $totalOcorrencias = mysqli_num_rows($result);
 
     //PESQUISA
     function pesquisarOcorrencias() {
-        const inputText = document.getElementById('pesquisa_texto');
+        const inputCliente = document.getElementById('pesquisa_texto');
         const inputSituac = document.getElementById('pesquisa_situac');
-        var pesquisa1 = $(inputText).val();
-        var pesquisa2 = $(inputSituac).val();
-        alert(pesquisa1);
-        alert(pesquisa2);
-        breakpoint;
-
         // PESQUISA
         $(function () {
-            var pesquisa = $(inputText).val();
-            if((pesquisa != '') || (pesquisa == '')){
+            var pesqCliente = $(inputCliente).val();
+            var pesqSituac = $(inputSituac).val();
+            alert(pesqCliente);
+            alert(pesqSituac);
+            //breakpoint;
+            if((pesqCliente != '') || (pesqCliente == '')){
                 var dados = {
-                    palavra : pesquisa
+                    pesqCliente : pesqCliente,
+                    pesqSituac : pesqSituac
                 }
                 $.post('processa/controle_ocorrencias/pro_pesquisa_ocorrencia.php', dados, function (retorna) {
                     $(".resultado").html(retorna);

@@ -133,7 +133,7 @@
                                         <a class="nav-link" href="index.php?link=usuarios"><span><i class="fas fa-users sm" style="padding: 5px"></i></span>Usuários</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="index.php?link=paramDiversos"><span><i class="fas fa-cogs" style="padding: 5px"></i></span>Diversos</a>
+                                        <a class="nav-link" href="index.php?link=situacoes"><span><i class="fas fa-cogs" style="padding: 5px"></i></span>Diversos</a>
                                     </li>
                                 </ul>
                             </div>

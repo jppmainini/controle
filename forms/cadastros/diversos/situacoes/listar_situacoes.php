@@ -26,8 +26,8 @@ $resultPrincipal = mysqli_query($dbConect, $query) or die (mysqli_error($dbConec
 </p>
 
 <div class="table-responsive">
-    <table class="table table-sm table-bordered table-hover table">
-        <thead class="table-dark small">
+    <table class="table table-sm table-hover">
+        <thead class="table-primary small">
         <tr>
             <!--<th><input type="checkbox" class="m-md-1" name="checkboxall" id="checkboxall"></th>-->
             <th class="m-md-1">#</th>
@@ -41,16 +41,16 @@ $resultPrincipal = mysqli_query($dbConect, $query) or die (mysqli_error($dbConec
         <tbody class="resultado">
 
         <?php while ($linhas = mysqli_fetch_array($resultPrincipal)){?>
-            <tr class="font-weight-bold"  id="resultado">
+            <tr id="resultado">
             <td class="text-center" style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['situac_id']?>" ></td>
-            <td style="width: 5%"><?php echo $linhas['situac_id']?></td>
+            <th style="width: 5%"><?php echo $linhas['situac_id']?></th>
             <td style="width: 20%"><?php echo $linhas['situac_descricao']?></td>
             <td style="width: 15%"><?php echo $linhas['situac_datainclusao']?></td>
             <td style="width: 15%"><?php echo $linhas['situac_dataalteracao']?></td>
             <td class="text-center">
                 <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                    <a href='index.php?link=editar-ocorrencia&id=<?php echo $linhas['ocor_id']?>'><button type="button" class="btn btn-warning btn-sm text-white" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
-                    <button type="button" class="btn btn-danger btn-sm text-white" title="Excluir" onclick="deleteuser(<?php echo $linhas['userid'];?>)" ><i class="far fa-trash-alt"></i></button>
+                    <a href='index.php?link=editar-situacao&id=<?php echo $linhas['situac_id']?>'><button type="button" class="btn btn-warning btn-sm text-white" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger btn-sm text-white" title="Excluir" onclick="deletaSituacoesInd(<?php echo $linhas['situac_id'];?>)" ><i class="far fa-trash-alt"></i></button>
                 </div>
             </td>
             </tr>
@@ -58,3 +58,13 @@ $resultPrincipal = mysqli_query($dbConect, $query) or die (mysqli_error($dbConec
         </tbody>
     </table>
 </div>
+
+<script>
+    //deleta
+    function deletaSituacoesInd(del_id) {
+        var resposta = confirm("Deseja realmente excluir essa Situação ?");
+        if (resposta == true){
+            window.location.href = "index.php?link=deleta-situacao&del_id="+del_id;
+        }
+    }
+</script>

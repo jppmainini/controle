@@ -29,9 +29,9 @@
 
     <!--<h2>Section title</h2>-->
     <div class="table-responsive">
-        <table class="table table-sm table-bordered table-hover">
+        <table class="table table-sm table-hover">
             <thead>
-            <tr>
+            <tr class="table-primary small">
                 <!--<th><input type="checkbox" class="m-md-1" name="checkboxall" id="checkboxall"></th>-->
                 <th class="m-md-1">#</th>
                 <th>Codigo</th>
@@ -46,7 +46,7 @@
             <?php while ($linhas = mysqli_fetch_array($resultado)){?>
             <tr  id="resultado">
                 <td class="text-center" style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['userid']?>" ></td>
-                <td style="width: 5%"><?php echo $linhas['userid']?></td>
+                <th style="width: 5%"><?php echo $linhas['userid']?></th>
                 <td style="width: 20%"><?php echo $linhas['usernome']?></td>
                 <td style="width: 25%"><?php echo $linhas['useremail']?></td>
                 <td style="width: 15%"><?php echo $linhas['userusuario']?></td>
@@ -63,9 +63,9 @@
                     ?>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#gridSystemModal<?php echo $linhas['userid']?>" title="Visualizar" ><i class="far fa-eye"></i></button>
-                    <a href='index.php?link=editar-usuario&id=<?php echo $linhas['userid'];?>'><button type="button" class="btn btn-warning btn-sm text-white" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
-                    <button type="button" class="btn btn-danger btn-sm text-white" title="Excluir" onclick="deleteuser(<?php echo $linhas['userid'];?>)" ><i class="far fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-primary btn-sm text-white badge" data-toggle="modal" data-target="#gridSystemModal<?php echo $linhas['userid']?>" title="Visualizar" ><i class="far fa-eye"></i></button>
+                    <a href='index.php?link=editar-usuario&id=<?php echo $linhas['userid'];?>'><button type="button" class="btn btn-warning btn-sm text-white badge" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger btn-sm text-white badge" title="Excluir" onclick="deleteuser(<?php echo $linhas['userid'];?>)" ><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
                 <!-- INICIO DO MODAL -->

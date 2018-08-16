@@ -92,13 +92,36 @@
               <TriggersCollapsed>True</TriggersCollapsed>
             </Compartments>
           </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>3</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-720 px</X>
+              <Y>-30 px</Y>
+            </Location>
+            <Size>
+              <Width>210 px</Width>
+              <Height>107 px</Height>
+            </Size>
+            <DbOid>
+              <Path>controle.situacoes</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
         </Children>
         <ViewPort>
           <ScaleMode>Free</ScaleMode>
-          <Scale>1</Scale>
+          <Scale>0.76</Scale>
           <Location>
-            <X>-546 px</X>
-            <Y>-234 px</Y>
+            <X>-976.315821621227 px</X>
+            <Y>-282.894755538481 px</Y>
           </Location>
         </ViewPort>
       </Model>

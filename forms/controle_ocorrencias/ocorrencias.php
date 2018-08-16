@@ -93,9 +93,16 @@ if($_GET['link'] == 'editar-ocorrencia'){
                                 <span class="input-group-text font-weight-bold" id="inputGroup-sizing-sm2">Situação:</span>
                             </div>
                             <select class="form-control" name="situacao_id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm2">
-                                <option value="1" <?php echo (($linhas['ocor_situacao'] == 1)? 'selected':'') ?>>Testar</option>
-                                <option value="2" <?php echo (($linhas['ocor_situacao'] == 2)? 'selected':'') ?> >Analisar</option>
-                                <option value="3" <?php echo (($linhas['ocor_situacao'] == 3)? 'selected':'') ?>>Programar</option>
+                                <?php
+                                $querySituacoes = mysqli_query($dbConect, "select * from situacoes");
+                                while ($situacoes = mysqli_fetch_array($querySituacoes)){
+                                    if($tipo == 'edit'){
+                                        echo "<option value=".$situacoes['situac_id']." ".(($situacoes['situac_id'] == $linhas['ocor_situacao'])? ' selected':'')." >".$situacoes['situac_descricao']."</option>";
+                                    }
+                                    else{
+                                        echo "<option value=".$situacoes['situac_id'].">".$situacoes['situac_descricao']."</option>";
+                                    }
+                                } ?>
                             </select>
                         </div>
                     </div>

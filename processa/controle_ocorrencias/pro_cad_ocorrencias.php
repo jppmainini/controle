@@ -24,8 +24,6 @@ if(isset($_POST['btn-gravar-ocorrencia'])){
         //$query2 = "insert into ocorrencias(ocor_id, ocor_cliente, ocor_analista, ocor_programador, ocor_situacao, ocor_solicitacao, ocor_datacriacao) values ($maxid, '$nome_cliente', $analista_id, $programador_id, $situacao_id, '$solicitacao',NOW())";
         //echo $query2;
         $query = mysqli_query($dbConect, "insert into ocorrencias(ocor_id, ocor_cliente, ocor_analista, ocor_programador, ocor_situacao, ocor_solicitacao, ocor_datacriacao) values ($maxid, '$nome_cliente', $analista_id, $programador_id, $situacao_id, '$solicitacao',NOW())") or die(mysqli_error($dbConect));
-        echo '<br>';
-        echo $query2;
         if(mysqli_affected_rows($dbConect) != 0){
             $_SESSION['cad-ocor-sucess'] = "<div class=\"alert alert-primary alert-dismissible fade show text-center\" role=\"alert\">
                                               Ocôrrencia <strong>$maxid</strong> incluido com Sucesso
@@ -37,7 +35,17 @@ if(isset($_POST['btn-gravar-ocorrencia'])){
         }
     }
     if($_POST['tipo'] == 'edit'){
-
+        $ocor_id = $_POST['ocor_id'];
+        $query = mysqli_query($dbConect, "UPDATE ocorrencias SET ocor_cliente = '$nome_cliente', ocor_analista = $analista_id, ocor_programador = $programador_id, ocor_situacao = $situacao_id , ocor_solicitacao = '$solicitacao' WHERE ocor_id = $ocor_id ") or die(mysqli_error($dbConect));
+        if(mysqli_affected_rows($dbConect) != 0){
+            $_SESSION['cad-ocor-sucess'] = "<div class=\"alert alert-warning alert-dismissible fade show text-center\" role=\"alert\">
+                                              Ocôrrencia <strong>$ocor_id</strong> foi alterado com Sucesso
+                                              <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                                <span aria-hidden=\"true\">&times;</span>
+                                              </button>
+                                            </div>";
+            header("Location: index.php?link=ocorrencias");
+        }
     }
 
 
