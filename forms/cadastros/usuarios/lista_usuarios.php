@@ -6,7 +6,7 @@
     <h1 class="h2">Cadastro de Usuários</h1>
     <div class="btn-toolbar mb-1 mb-md-0">
         <div class="btn mr-0">
-            <a href="index.php?link=novo-usuario"><button class="btn btn-sm btn-primary" name="novo-usuario"><i class="fas fa-user-plus"></i> Novo</button></a>
+            <a href="novo-usuario"><button class="btn btn-sm btn-primary" name="novo-usuario"><i class="fas fa-user-plus"></i> Novo</button></a>
             <button class="btn btn-sm btn-danger" id="delsel"><i class="far fa-trash-alt"></i> Delete</button>
         </div>
         <button class="btn btn-sm btn-outline-secondary dropdown-toggle pt-1">
@@ -64,7 +64,7 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-primary btn-sm text-white badge" data-toggle="modal" data-target="#gridSystemModal<?php echo $linhas['userid']?>" title="Visualizar" ><i class="far fa-eye"></i></button>
-                    <a href='index.php?link=editar-usuario&id=<?php echo $linhas['userid'];?>'><button type="button" class="btn btn-warning btn-sm text-white badge" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
+                    <a href='editar-usuario&id=<?php echo $linhas['userid'];?>'><button type="button" class="btn btn-warning btn-sm text-white badge" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
                     <button type="button" class="btn btn-danger btn-sm text-white badge" title="Excluir" onclick="deleteuser(<?php echo $linhas['userid'];?>)" ><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
@@ -116,7 +116,7 @@
     function deleteuser(delid) {
         var resposta = confirm("Deseja realmente excluir o usuario ?");
         if (resposta == true){
-            window.location.href = "index.php?link=deleta-usuario&del_id="+delid;
+            window.location.href = "deleta-usuario&del_id="+delid;
         }
     }
     // CHECKBOX NA GRID

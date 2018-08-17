@@ -1,6 +1,6 @@
 <?php
 include_once "../../kernel/dbconect.php";
-var_dump($_POST);
+
 
 $pesqCliente = $_POST['pesqCliente'];
 $pesqSituac = $_POST['pesqSituac'];
@@ -15,7 +15,7 @@ if(($pesqCliente != '') or ($pesqCliente == '')){
             inner join situacoes on ocorrencias.ocor_situacao = situacoes.situac_id
             where ocor_cliente like '$pesqCliente%'
             order by ocorrencias.ocor_id";
-    echo $query;
+
     $resultPrincipal = mysqli_query($dbConect, $query) or die (mysqli_error($dbConect));
     $linhas = mysqli_num_rows($resultPrincipal);
     if($linhas > 0){

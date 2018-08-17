@@ -27,7 +27,7 @@ if(isset($_POST['btn-gravar-usuario'])){
                                                 <span aria-hidden=\"true\">&times;</span>
                                               </button>
                                             </div>";
-            header("Location: index.php?link=usuarios");
+            header("Location: usuarios");
         }
     }
     //VERIFICA SE É ALTERACAO
@@ -40,7 +40,7 @@ if(isset($_POST['btn-gravar-usuario'])){
                                                 <span aria-hidden=\"true\">&times;</span>
                                               </button>
                                             </div>";
-            header("Location: index.php?link=usuarios");
+            header("Location: usuarios");
         }
     }
 }
@@ -57,7 +57,7 @@ if($_GET['link'] == 'deleta-usuario'){
                                                 <span aria-hidden=\"true\">&times;</span>
                                               </button>
                                             </div>";
-        header("Location: index.php?link=usuarios");
+        header("Location: usuarios");
     }
     else {
         $query = mysqli_query($dbConect, "delete from usuarios where userid = $id");
@@ -68,7 +68,7 @@ if($_GET['link'] == 'deleta-usuario'){
                                                     <span aria-hidden=\"true\">&times;</span>
                                                   </button>
                                                 </div>";
-            header("Location: index.php?link=usuarios");
+            header("Location: usuarios");
         }
     }
 }

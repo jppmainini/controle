@@ -31,7 +31,7 @@ if(isset($_POST['btn-gravar-ocorrencia'])){
                                                 <span aria-hidden=\"true\">&times;</span>
                                               </button>
                                             </div>";
-            header("Location: index.php?link=ocorrencias");
+            header("Location: ocorrencias");
         }
     }
     if($_POST['tipo'] == 'edit'){
@@ -44,7 +44,7 @@ if(isset($_POST['btn-gravar-ocorrencia'])){
                                                 <span aria-hidden=\"true\">&times;</span>
                                               </button>
                                             </div>";
-            header("Location: index.php?link=ocorrencias");
+            header("Location: ocorrencias");
         }
     }
 
@@ -61,7 +61,7 @@ if($_GET['link'] == 'deleta-ocorrencia'){
                                                     <span aria-hidden=\"true\">&times;</span>
                                                   </button>
                                                 </div>";
-        header("Location: index.php?link=ocorrencias");
+        header("Location: ocorrencias");
 
     }
 }

@@ -54,6 +54,10 @@ include_once ("kernel/dbconect.php");
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-3 px-2">
             <?php
+                $link = (isset($_GET['link'])) ? $_GET['link']:'';
+                $link = array_filter(explode('/', $link));
+                //var_dump($link);
+
             $link = $_GET["link"];
             // DASHBOARD
             $pag['dashboard'] = "forms/dashboard/dashboard.php";
@@ -92,13 +96,14 @@ include_once ("kernel/dbconect.php");
                 }
                 else{
                     //include "forms/dashboard/dashboard.php";
-                    header("Location: index.php?link=dashboard");
+                    header("Location: /controle/dashboard");
                 }
             }
             else{
                 //include "forms/dashboard/dashboard.php";
-                header("Location: index.php?link=dashboard");
+                header("Location: /controle/dashboard");
             }
+
             ?>
 
         </main>

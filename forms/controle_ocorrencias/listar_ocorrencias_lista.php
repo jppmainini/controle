@@ -15,7 +15,7 @@ $totalOcorrencias = mysqli_num_rows($result);
     <h1 class="h3">Ocôrrencias - <?php echo $totalOcorrencias ?></h1>
     <div class="btn-toolbar mb-1 mb-md-0">
         <div class="btn mr-0">
-            <a href="index.php?link=nova-ocorrencia"><button class="btn btn-sm btn-primary" name="nova-ocorrencia"><i class="fas fa-user-plus"></i> Novo</button></a>
+            <a href="nova-ocorrencia"><button class="btn btn-sm btn-primary" name="nova-ocorrencia"><i class="fas fa-user-plus"></i> Novo</button></a>
         </div>
     </div>
 </div>
@@ -85,8 +85,8 @@ $totalOcorrencias = mysqli_num_rows($result);
                 <td class="text-center">
                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
                     <button type="button" class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#gridSystemModal<?php echo $linhas['userid']?>" title="Visualizar" ><i class="far fa-eye"></i></button>
-                    <a href='index.php?link=editar-ocorrencia&id=<?php echo $linhas['ocor_id']?>'><button type="button" class="btn btn-warning btn-sm text-white" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
-                    <button type="button" class="btn btn-danger btn-sm text-white" title="Excluir" onclick="deleteuser(<?php echo $linhas['userid'];?>)" ><i class="far fa-trash-alt"></i></button>
+                    <a href='editar-ocorrencia&id=<?php echo $linhas['ocor_id']?>'><button type="button" class="btn btn-warning btn-sm text-white" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger btn-sm text-white" title="Excluir" onclick="deleteOcorrenciaInd(<?php echo $linhas['ocor_id'];?>)" ><i class="far fa-trash-alt"></i></button>
                     </div>
                 </td>
             </tr>
@@ -98,7 +98,7 @@ $totalOcorrencias = mysqli_num_rows($result);
     function deleteOcorrenciaInd(del_id) {
         var resposta = confirm("Deseja realmente excluir essa Ocôrrencia ?");
         if (resposta == true){
-            window.location.href = "index.php?link=deleta-ocorrencia&del_id="+del_id;
+            window.location.href = "deleta-ocorrencia&del_id="+del_id;
         }
     }
 
@@ -110,8 +110,8 @@ $totalOcorrencias = mysqli_num_rows($result);
         $(function () {
             var pesqCliente = $(inputCliente).val();
             var pesqSituac = $(inputSituac).val();
-            alert(pesqCliente);
-            alert(pesqSituac);
+            //alert(pesqCliente);
+            //alert(pesqSituac);
             //breakpoint;
             if((pesqCliente != '') || (pesqCliente == '')){
                 var dados = {

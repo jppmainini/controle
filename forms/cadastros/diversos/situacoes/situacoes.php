@@ -22,7 +22,7 @@ if($_GET['link'] == 'editar-situacao'){
     <h1 class="h3"><?php echo $title?></h1>
 </div>
 
-<form action="index.php?link=gravar-situacao" method="post" enctype="multipart/form-data">
+<form action="gravar-situacao" method="post" enctype="multipart/form-data">
     <input type="hidden" name="situac_id" value="<?php echo $situac_id?>">
     <input type="hidden" name="tipo" value="<?php echo $tipo?>">
 
@@ -64,7 +64,7 @@ if($_GET['link'] == 'editar-situacao'){
     // CONFIRMA SAIR SEM GRAVAR
     function confirmCancelar() {
         if(confirm("Deseja realmente sair sem Gravar ?")){
-            window.location.href=("index.php?link=situacoes");
+            window.location.href=("situacoes");
             return true;
         }
     }

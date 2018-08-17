@@ -4,7 +4,7 @@
             <ul class="nav flex-column">
                 <!-- DASHBOARD -->
                 <li class="nav-item border-bottom">
-                    <a class="nav-link active" href="index.php?link=dashboard">
+                    <a class="nav-link active" href="dashboard">
                         <span data-feather="home"></span>
                         Dashboard <span class="sr-only">(current)</span>
                     </a>
@@ -100,7 +100,7 @@
                         <div class="card-body border">
                             <ul class="nav flex-column">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index.php?link=ocorrencias"><span><i class="far fa-file-alt" style="padding: 5px"></i></span>Ocôrrencias</a>
+                                    <a class="nav-link" href="ocorrencias"><span><i class="far fa-file-alt" style="padding: 5px"></i></span>Ocôrrencias</a>
                                 </li>
                             </ul>
                         </div>
@@ -127,13 +127,10 @@
                             <div class="card-body border">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="admin.php?link=20"><span><i class="far fa-building " style="padding: 5px"></i></span>Empresas</a>
+                                        <a class="nav-link" href="usuarios"><span><i class="fas fa-users sm" style="padding: 5px"></i></span>Usuários</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="index.php?link=usuarios"><span><i class="fas fa-users sm" style="padding: 5px"></i></span>Usuários</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="index.php?link=situacoes"><span><i class="fas fa-cogs" style="padding: 5px"></i></span>Diversos</a>
+                                        <a class="nav-link" href="situacoes"><span><i class="fas fa-cogs" style="padding: 5px"></i></span>Diversos</a>
                                     </li>
                                 </ul>
                             </div>

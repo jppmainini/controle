@@ -7,7 +7,7 @@ $resultPrincipal = mysqli_query($dbConect, $query) or die (mysqli_error($dbConec
     <h1 class="h3">Situações</h1>
     <div class="btn-toolbar mb-1 mb-md-0">
         <div class="btn mr-0">
-            <a href="index.php?link=nova-situacao"><button class="btn btn-sm btn-primary" name="nova-situacao"><i class="fas fa-user-plus"></i> Novo</button></a>
+            <a href="nova-situacao"><button class="btn btn-sm btn-primary" name="nova-situacao"><i class="fas fa-user-plus"></i> Novo</button></a>
         </div>
         <button class="btn btn-sm btn-outline-secondary dropdown-toggle pt-1">
             <span data-feather="calendar"></span>
@@ -49,7 +49,7 @@ $resultPrincipal = mysqli_query($dbConect, $query) or die (mysqli_error($dbConec
             <td style="width: 15%"><?php echo $linhas['situac_dataalteracao']?></td>
             <td class="text-center">
                 <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                    <a href='index.php?link=editar-situacao&id=<?php echo $linhas['situac_id']?>'><button type="button" class="btn btn-warning btn-sm text-white" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
+                    <a href='editar-situacao&id=<?php echo $linhas['situac_id']?>'><button type="button" class="btn btn-warning btn-sm text-white" name="btn-editUsuario" title="Editar" ><i class="far fa-edit"></i></button></a>
                     <button type="button" class="btn btn-danger btn-sm text-white" title="Excluir" onclick="deletaSituacoesInd(<?php echo $linhas['situac_id'];?>)" ><i class="far fa-trash-alt"></i></button>
                 </div>
             </td>
@@ -64,7 +64,7 @@ $resultPrincipal = mysqli_query($dbConect, $query) or die (mysqli_error($dbConec
     function deletaSituacoesInd(del_id) {
         var resposta = confirm("Deseja realmente excluir essa Situação ?");
         if (resposta == true){
-            window.location.href = "index.php?link=deleta-situacao&del_id="+del_id;
+            window.location.href = "deleta-situacao&del_id="+del_id;
         }
     }
 </script>

@@ -20,7 +20,7 @@ if(isset($_POST['btn-gravar-situacao'])){
                                                 <span aria-hidden=\"true\">&times;</span>
                                               </button>
                                             </div>";
-            header("Location: index.php?link=situacoes");
+            header("Location: situacoes");
         }
     }
 
@@ -35,7 +35,7 @@ if(isset($_POST['btn-gravar-situacao'])){
                                                 <span aria-hidden=\"true\">&times;</span>
                                               </button>
                                             </div>";
-            header("Location: index.php?link=situacoes");
+            header("Location: situacoes");
         }
     }
 }
@@ -50,6 +50,6 @@ if($_GET['link'] == 'deleta-situacao'){
                                                 <span aria-hidden=\"true\">&times;</span>
                                               </button>
                                             </div>";
-        header("Location: index.php?link=situacoes");
+        header("Location: situacoes");
     }
 }

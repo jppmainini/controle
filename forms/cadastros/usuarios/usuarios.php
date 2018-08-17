@@ -40,7 +40,7 @@ if($_GET['link'] == 'editar-usuario'){
     <h1><?php echo $title?></h1>
 </div>
 
-<form class="needs-validation" action="index.php?link=gravar-usuario" method="post" novalidate>
+<form class="needs-validation" action="gravar-usuario" method="post" novalidate>
     <input type="hidden" name="userid" value="<?php echo $linhas['userid']?>">
     <input type="hidden" name="tipo" value="<?php echo $tipo ?>">
     <fieldset disabled>
@@ -116,7 +116,7 @@ if($_GET['link'] == 'editar-usuario'){
     // CONFIRMA SAIR SEM GRAVAR
     function confirmCancelar() {
         if(confirm("Deseja realmente sair sem Gravar ?")){
-            window.location.href=("index.php?link=usuarios");
+            window.location.href=("usuarios");
             return true;
         }
     }
