@@ -60,7 +60,27 @@ $totalOcorrencias = mysqli_num_rows($result);
             <tr>
                 <!--<th><input type="checkbox" class="m-md-1" name="checkboxall" id="checkboxall"></th>-->
                 <th class="m-md-1">#</th>
-                <th>Ocôrrencia</th>
+                <th>
+                    Ocôrrencia
+                    <i class="fas fa-sort-amount-down float-right table-hover" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                    <div class="dropdown">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <h6 class="dropdown-header">Ordernar</h6>
+                            <div class="dropdown-item form-check">
+                                <input class="form-check-input" type="radio" name="order_id" id="crescente_id" value="crescente" checked>
+                                <label class="form-check-label" for="crescente_id">
+                                    Crescente
+                                </label>
+                            </div>
+                            <div class="dropdown-item form-check">
+                                <input class="form-check-input" type="radio" name="order_id" id="decrescente_id" value="decrescente">
+                                <label class="form-check-label" for="decrescente_id">
+                                    Decrescente
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </th>
                 <th>Cliente</th>
                 <th>Situação</th>
                 <th>Analista</th>
@@ -75,7 +95,7 @@ $totalOcorrencias = mysqli_num_rows($result);
         <?php while ($linhas = mysqli_fetch_array($result)){?>
             <tr class=""  id="resultado">
                 <td class="text-center" style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['ocor_id']?>" ></td>
-                <th style="width: 5%"><?php echo $linhas['ocor_id']?></th>
+                <th style="width: 7%"><?php echo $linhas['ocor_id']?></th>
                 <td style="width: 20%"><?php echo $linhas['ocor_cliente']?></td>
                 <td style="width: 5%"><?php echo $linhas['situac_descricao']?></td>
                 <td style="width: 15%"><?php echo $linhas['analista']?></td>
@@ -126,6 +146,48 @@ $totalOcorrencias = mysqli_num_rows($result);
             }
         });
     }
+
+    //ordernar
+    $('#crescente_id').click(function () {
+        if ($('#crescente_id').is(":checked")){
+            alert("crescente marcado");
+            const orderID = document.getElementById('crescente_id');
+            $(function () {
+                var order_ID = $(orderID).val();
+                if(order_ID != ''){
+                    alert(order_ID);
+                    var dados = {
+                        order_ID : order_ID,
+                    }
+                    $.post('processa/controle_ocorrencias/pro_pesquisa_ocorrencia.php', dados, function (retorna) {
+                        $(".resultado").html(retorna)
+                    })
+                }else {
+                    $(".resultado").html(retorna)
+                }
+            });
+        }
+    })
+    $('#decrescente_id').click(function () {
+            if ($('#decrescente_id').is(":checked")){
+                alert("decrescente marcado");
+                const orderID = document.getElementById('decrescente_id');
+                $(function () {
+                    var order_ID = $(orderID).val();
+                    if(order_ID != ''){
+                        alert(order_ID);
+                        var dados = {
+                            order_ID : order_ID,
+                        }
+                        $.post('processa/controle_ocorrencias/pro_pesquisa_ocorrencia.php', dados, function (retorna) {
+                            $(".resultado").html(retorna)
+                        })
+                    }else {
+                        $(".resultado").html(retorna)
+                    }
+                });
+            }
+        })
 
 
 </script>

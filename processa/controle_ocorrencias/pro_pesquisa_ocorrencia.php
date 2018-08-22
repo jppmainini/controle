@@ -4,7 +4,15 @@ include_once "../../kernel/dbconect.php";
 
 $pesqCliente = $_POST['pesqCliente'];
 $pesqSituac = $_POST['pesqSituac'];
+$order_codigo = $_POST['order_ID'];
+var_dump($_POST);
 
+if(($order_codigo == '') or ($order_codigo == 'crescente')){
+    $order_codigo = 'ocor_id';
+}
+if($order_codigo == 'decrescente'){
+    $order_codigo = 'ocor_id desc';
+}
 
 if(($pesqCliente != '') or ($pesqCliente == '')){
     $query = "select ocorrencias.ocor_id, ocorrencias.ocor_cliente, ocor_analista, ocor_programador, p1.usernome as analista, p2.usernome as programador,
@@ -14,15 +22,14 @@ if(($pesqCliente != '') or ($pesqCliente == '')){
             inner join usuarios as p2 on ocorrencias.ocor_programador = p2.userid	
             inner join situacoes on ocorrencias.ocor_situacao = situacoes.situac_id
             where ocor_cliente like '$pesqCliente%'
-            order by ocorrencias.ocor_id";
-
+            order by ocorrencias.$order_codigo";
     $resultPrincipal = mysqli_query($dbConect, $query) or die (mysqli_error($dbConect));
     $linhas = mysqli_num_rows($resultPrincipal);
     if($linhas > 0){
         while ($linhas = mysqli_fetch_array($resultPrincipal)){?>
             <tr id="resultado">
                 <td class="text-center" style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['ocor_id']?>" ></td>
-                <th style="width: 5%"><?php echo $linhas['ocor_id']?></th>
+                <th style="width: 7%"><?php echo $linhas['ocor_id']?></th>
                 <td style="width: 20%"><?php echo $linhas['ocor_cliente']?></td>
                 <td style="width: 5%"><?php echo $linhas['situac_descricao']?></td>
                 <td style="width: 15%"><?php echo $linhas['analista']?></td>
