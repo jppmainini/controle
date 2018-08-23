@@ -1,6 +1,6 @@
 <?php
 $query = "select ocorrencias.ocor_id, ocorrencias.ocor_cliente, ocor_analista, ocor_programador, p1.usernome as analista, p2.usernome as programador,
-            ocorrencias.ocor_situacao, situacoes.situac_descricao, ocorrencias.ocor_solicitacao, ocorrencias.ocor_datacriacao,ocor_datafinalizacao
+            ocorrencias.ocor_situacao, situacoes.situac_descricao, ocorrencias.ocor_solicitacao, ocorrencias.ocor_prioridade, ocorrencias.ocor_datacriacao,ocor_datafinalizacao
             from ocorrencias
             inner join usuarios as p1 on ocorrencias.ocor_analista = p1.userid
             inner join usuarios as p2 on ocorrencias.ocor_programador = p2.userid	
@@ -31,20 +31,34 @@ $totalOcorrencias = mysqli_num_rows($result);
     <fieldset class="border mb-2 p-2">
         <legend class="h6">Filtros</legend>
         <div class="row">
+            <!--
             <div class="col-2">
                 <label class="mb-0" for="pesquisa_situac">Por Analista</label>
                 <select class="form-control form-control-sm" name="pesquisa_analista" id="pesquisa_situac">
                     <option value="" selected>...</option>
-                    <?php
+                    <?php/*
                     $queryUsuarios = mysqli_query($dbConect, "select * from usuarios");
                     while ($usuarios = mysqli_fetch_array($queryUsuarios)){
                         echo "<option value=".$usuarios['userid'].">".$usuarios['usernome']."</option>";
-                    } ?>
+                    } */?>
                 </select>
             </div>
-            <div class="col-3">
+            -->
+            <div class="col-6">
                 <label class="mb-0" for="pesquisa_texto">Por Cliente</label>
                 <input type="text" class="form-control form-control-sm" id="pesquisa_texto" placeholder="Pesquisar...">
+            </div>
+            <div class="col-2">
+                <label class="mb-0" for="pesquisa_situacao">Por Situação</label>
+                <select class="form-control form-control-sm" id="pesquisa_situacao">
+                    <option value="">Todos</option>
+                    <?php
+                        $querySituacao = mysqli_query($dbConect, "select * from situacoes");
+                        while ($situacoes = mysqli_fetch_array($querySituacao)){
+                            echo "<option value=".$situacoes['situac_id'].">".$situacoes['situac_descricao']."</option>";
+                        }
+                    ?>
+                </select>
             </div>
             <div class="col">
                 <button class="btn btn-success btn-sm float-right" onclick="pesquisarOcorrencias()"><i class="fas fa-filter"></i> Filtrar</button>
@@ -93,9 +107,9 @@ $totalOcorrencias = mysqli_num_rows($result);
         <tbody class="resultado">
 
         <?php while ($linhas = mysqli_fetch_array($result)){?>
-            <tr class=""  id="resultado">
+            <tr class="<?php echo (($linhas['ocor_prioridade'] == 1)? ' table-info':''); echo (($linhas['ocor_prioridade'] == 2)? ' table-warning':''); echo(($linhas['ocor_prioridade'] == 3)? 'table-danger':'') ?>"  id="resultado">
                 <td class="text-center" style="width: 2%"><input type="checkbox" class="checkbox m-md-1 checkboxid" name="userid[]" value="<?php echo $linhas['ocor_id']?>" ></td>
-                <th style="width: 7%"><?php echo $linhas['ocor_id']?></th>
+                <th style="width: 8%"><?php echo $linhas['ocor_id']?></th>
                 <td style="width: 20%"><?php echo $linhas['ocor_cliente']?></td>
                 <td style="width: 5%"><?php echo $linhas['situac_descricao']?></td>
                 <td style="width: 15%"><?php echo $linhas['analista']?></td>
@@ -125,7 +139,7 @@ $totalOcorrencias = mysqli_num_rows($result);
     //PESQUISA
     function pesquisarOcorrencias() {
         const inputCliente = document.getElementById('pesquisa_texto');
-        const inputSituac = document.getElementById('pesquisa_situac');
+        const inputSituac = document.getElementById('pesquisa_situacao');
         // PESQUISA
         $(function () {
             var pesqCliente = $(inputCliente).val();
@@ -134,6 +148,8 @@ $totalOcorrencias = mysqli_num_rows($result);
             //alert(pesqSituac);
             //breakpoint;
             if((pesqCliente != '') || (pesqCliente == '')){
+                //alert(pesqCliente);
+                //alert(pesqSituac);
                 var dados = {
                     pesqCliente : pesqCliente,
                     pesqSituac : pesqSituac

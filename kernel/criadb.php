@@ -38,7 +38,8 @@ if(isset($_POST["btn_createdb"])){
                           ocor_analista integer,
                           ocor_programador integer,
                           ocor_situacao integer ,
-                          ocor_solicitacao text,                                                
+                          ocor_solicitacao text,    
+                          ocor_prioridade integer,                                            
                           ocor_datacriacao datetime,
                           ocor_datafinalizacao datetime
         )";
@@ -66,6 +67,24 @@ if(isset($_POST["btn_createdb"])){
         $existTable = ['Situacoes: ' => 'Criado com sucesso'];
     }else{
         $existTable = ['Situacoes: ' => 'Já Existe'];
+    }
+
+    //ARQUIVOS OCORRENCIAS
+    $result = mysqli_query($dbConect, "show tables like 'ocorrencias_arquivos'") or die (mysqli_error($dbConect));
+    $tableExist = mysqli_num_rows($result);
+    if($tableExist != 1){
+        $tbOcorArquivos = "create table ocorrencias_arquivos(
+                          arq_id int not null auto_increment primary key,
+                          ocor_id int not null ,   
+                          arq_caminho varchar (250),                                            
+                          arq_datainclusao datetime
+        )";
+        echo $tbOcorArquivos;
+        mysqli_query($dbConect, $tbOcorArquivos) or die(mysqli_error($dbConect));
+        //mysqli_query($dbConect, $tbOcorrencias) or die(mysqli_error($dbConect));
+        $existTable = ['OcorArquivos: ' => 'Criado com sucesso'];
+    }else{
+        $existTable = ['OcorArquivos: ' => 'Já Existe'];
     }
 
     // MENSAGENS DE ERRO NA CRIACAO

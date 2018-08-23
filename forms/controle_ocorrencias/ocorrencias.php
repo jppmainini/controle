@@ -11,7 +11,7 @@ $linhas = array(
     'ocor_situacao' => '',
     'ocor_solicitacao' => '',
     'ocor_cliente' => '',
-    '' => ''
+    'ocor_prioridade' => 1,
 );
 
 if($_GET['link'] == 'editar-ocorrencia'){
@@ -20,7 +20,7 @@ if($_GET['link'] == 'editar-ocorrencia'){
     $ocor_id = $_GET['id'];
     $queryOcorrencia = mysqli_query($dbConect,"select * from ocorrencias where ocor_id = $ocor_id limit 1");
     $linhas = mysqli_fetch_assoc($queryOcorrencia);
-    //var_dump($linhas);
+    ///var_dump($linhas);
 
 }
 
@@ -36,13 +36,21 @@ if($_GET['link'] == 'editar-ocorrencia'){
 
     <div class="mt-4 small">
         <div class="card">
-            <div class="card-header alert-info">
+            <div class="card-header alert-info p-0">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-3 mt-2 ml-2">
                         Ocôrrencia: <strong><?php echo $linhas['ocor_id']?></strong>
                     </div>
-                    <div class="col-6">
+                    <div class="col-7 mt-2 ml-2">
                         Criado: <strong> <?php echo $linhas['ocor_datacriacao'] ?></strong>
+                    </div>
+                    <div class="col float-right">
+                        <label class="m-0">Prioridade:</label>
+                        <select class="form-control form-control-sm" name="prioridade">
+                            <option value="1" <?php echo (($linhas['ocor_prioridade'] == 1)? ' selected':'') ?>>Normal</option>
+                            <option class="table-warning" value="2" <?php echo (($linhas['ocor_prioridade'] == 2)? ' selected':'') ?>>Alta</option>
+                            <option class="table-danger" value="3" <?php echo (($linhas['ocor_prioridade'] == 3)? ' selected':'') ?>>Urgente</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -121,7 +129,31 @@ if($_GET['link'] == 'editar-ocorrencia'){
                 <textarea class="form-control" rows="10" name="solicitacao" required><?php echo $linhas['ocor_solicitacao']?></textarea>
 
                 <div class="input-group mb-3 mt-4">
-                    <input type="file" class="form-control form-control-sm" name="upFiles[]" id="upFiles" multiple>
+                    <input type="file" class="form-control form-control-sm" name="arquivos[]" id="arquivos_id" multiple>
+                </div>
+                <div>
+                    <?php
+                        if(isset($ocor_id)){
+                            $queryArquivos = mysqli_query($dbConect, "select * from ocorrencias_arquivos where ocor_id = $ocor_id");
+                            while ($arquivos = mysqli_fetch_array($queryArquivos)){
+                                //echo "<img src=\"".$arquivos['arq_caminho']."\" class=\"img-thumbnail mt-2\" style=\"width: 150px; height: 150px\">";
+                                ?>
+
+                                <img src="<?php echo $arquivos['arq_caminho']?>" class="img-thumbnail mt-2" data-toggle="modal" data-target=".bd-example-modal-lg<?php echo $arquivos['arq_id']?>" style="width: 150px; height: 150px">
+                                <!--INICIO MODAL-->
+                                <div class="modal fade bd-example-modal-lg<?php echo $arquivos['arq_id']?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <img src="<?php echo $arquivos['arq_caminho']?>">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <?php
+                            }
+                        }
+                    ?>
+
                 </div>
 
             </div>
@@ -143,7 +175,7 @@ if($_GET['link'] == 'editar-ocorrencia'){
 
     $(document).ready(function () {
         $(document).click(function () {
-            var files = $("#upFiles")[0].files;
+            var files = $("#arquivos_id")[0].files;
             for (var i = 0; i < files.length; i++){
                 alert(files[i].name);
             }
