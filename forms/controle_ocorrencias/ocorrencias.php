@@ -144,7 +144,7 @@ if($_GET['link'] == 'editar-ocorrencia'){
                                 <div class="modal fade bd-example-modal-lg<?php echo $arquivos['arq_id']?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <img src="<?php echo $arquivos['arq_caminho']?>">
+                                            <img src="<?php echo $arquivos['arq_caminho']?>" class="img-fluid" alt="Responsive image">
                                         </div>
                                     </div>
                                 </div>

@@ -1,11 +1,21 @@
 <?php
+//RECEBE A QTD DE PAGINA
+$pagina_atual = filter_input(INPUT_GET, $pagina, FILTER_SANITIZE_NUMBER_INT);
+echo $pagina_atual;
+$pagina = (!empty($pagina_atual))? $pagina_atual: 1;
+
+//SETA QTD DE PAGINA
+$qtd_result_pg = 3;
+// CALCULA QTD PAGINAS
+$iniciopg = ($qtd_result_pg * $pagina) - $qtd_result_pg;
+
 $query = "select ocorrencias.ocor_id, ocorrencias.ocor_cliente, ocor_analista, ocor_programador, p1.usernome as analista, p2.usernome as programador,
             ocorrencias.ocor_situacao, situacoes.situac_descricao, ocorrencias.ocor_solicitacao, ocorrencias.ocor_prioridade, ocorrencias.ocor_datacriacao,ocor_datafinalizacao
-            from ocorrencias
+            from ocorrencias 
             inner join usuarios as p1 on ocorrencias.ocor_analista = p1.userid
             inner join usuarios as p2 on ocorrencias.ocor_programador = p2.userid	
             inner join situacoes on ocorrencias.ocor_situacao = situacoes.situac_id
-            order by ocorrencias.ocor_id";
+            order by ocorrencias.ocor_id LIMIT $iniciopg, $qtd_result_pg";
 $result = mysqli_query($dbConect, $query);
 $totalOcorrencias = mysqli_num_rows($result);
 
@@ -25,6 +35,8 @@ $totalOcorrencias = mysqli_num_rows($result);
         echo $_SESSION['cad-ocor-sucess']; //echo imprimir
         unset($_SESSION['cad-ocor-sucess']); //unset destoi a variavel
     }
+
+
     ?>
 </p>
 <div>
